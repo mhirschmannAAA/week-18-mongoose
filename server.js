@@ -10,7 +10,7 @@ var cheerio = require("cheerio");
 
 mongoose.Promise = Promise;
 
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3000;
 
 var app = express();
 
@@ -30,7 +30,7 @@ var routes = require("./controllers/scraper_controller.js");
 
 app.use("/", routes);
 
-mongoose.connect("mongodb://heroku_gnzk5747:4d2121nhgnfbdl1pfirsdepk9n@ds125262.mlab.com:25262/heroku_gnzk5747");
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines"
 
 var db = mongoose.connection;
 
